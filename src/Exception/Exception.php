@@ -18,7 +18,7 @@
  * limitations under the License.
  **/
 
-namespace Tivie\Command\Exception;
+namespace Orsokuma\Command\Exception;
 
 /**
  * Class Exception
@@ -26,7 +26,7 @@ namespace Tivie\Command\Exception;
  *
  * Note: This exception and all its children change the line and file in the backtrace log. If you
  *
- * @package Tivie\Command\Exception
+ * @package Orsokuma\Command\Exception
  * @copyright 2014 Estevão Soares dos Santos
  */
 class Exception extends \Exception

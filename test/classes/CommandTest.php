@@ -6,7 +6,7 @@
  * Time: 17:00
  */
 
-namespace Tivie\Command;
+namespace Orsokuma\Command;
 
 use Tivie\OS\Detector;
 
@@ -32,7 +32,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     private function getCmdMock($flags, $os)
     {
         $osMock = $this->getOSMock($os);
-        $cmdMock = $this->getMockBuilder('\Tivie\Command\Command')
+        $cmdMock = $this->getMockBuilder('\Orsokuma\Command\Command')
             ->setMethods(array('procOpen', 'exec'))
             ->setConstructorArgs(array($flags, $osMock))
             ->getMock();
@@ -72,7 +72,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|\Tivie\Command\Result
+     * @return \PHPUnit_Framework_MockObject_MockObject|\Orsokuma\Command\Result
      */
     private function getResultMock()
     {
@@ -84,7 +84,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
             'setLastLine',
         );
 
-        $mock = $this->getMockBuilder('\Tivie\Command\Result')
+        $mock = $this->getMockBuilder('\Orsokuma\Command\Result')
             ->setMethods($methods)
             ->getMock();
 
@@ -103,7 +103,7 @@ class CommandTest extends \PHPUnit_Framework_TestCase
      */
     private function getArgumentMock($key = null, $values = null)
     {
-        $mock = $this->getMockBuilder('\Tivie\Command\Argument');
+        $mock = $this->getMockBuilder('\Orsokuma\Command\Argument');
 
         if (is_null($key)) {
             $mock->disableOriginalConstructor();
@@ -115,8 +115,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::setCommand
-     * @covers \Tivie\Command\Command::getCommand
+     * @covers \Orsokuma\Command\Command::setCommand
+     * @covers \Orsokuma\Command\Command::getCommand
      */
     public function testSetGetCommand()
     {
@@ -137,8 +137,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::setCommand
-     * @expectedException \Tivie\Command\Exception\InvalidArgumentException
+     * @covers \Orsokuma\Command\Command::setCommand
+     * @expectedException \Orsokuma\Command\Exception\InvalidArgumentException
      */
     public function testSetGetCommandException()
     {
@@ -150,9 +150,9 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::addArgument
-     * @covers \Tivie\Command\Command::removeArgument
-     * @covers \Tivie\Command\Command::getArguments
+     * @covers \Orsokuma\Command\Command::addArgument
+     * @covers \Orsokuma\Command\Command::removeArgument
+     * @covers \Orsokuma\Command\Command::getArguments
      */
     public function testAddRemoveArguments()
     {
@@ -169,8 +169,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::getStdIn
-     * @covers \Tivie\Command\Command::setStdIn
+     * @covers \Orsokuma\Command\Command::getStdIn
+     * @covers \Orsokuma\Command\Command::setStdIn
      */
     public function testSetGetStdIn()
     {
@@ -181,10 +181,10 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::addArgument
-     * @covers \Tivie\Command\Command::setCommand
-     * @covers \Tivie\Command\Command::getBuiltCommand
-     * @covers \Tivie\Command\Command::__toString()
+     * @covers \Orsokuma\Command\Command::addArgument
+     * @covers \Orsokuma\Command\Command::setCommand
+     * @covers \Orsokuma\Command\Command::getBuiltCommand
+     * @covers \Orsokuma\Command\Command::__toString()
      */
     public function testGetBuiltCommand()
     {
@@ -205,11 +205,11 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::run
+     * @covers \Orsokuma\Command\Command::run
      */
     public function testRunCallsCorrectMethod()
     {
-        $resMock = $this->getMockBuilder('\Tivie\Command\Result')->getMock();
+        $resMock = $this->getMockBuilder('\Orsokuma\Command\Result')->getMock();
 
         //TEST exec method is called in windows environment
         $cmd = $this->getCmdMock(null, \Tivie\OS\WINDOWS_FAMILY);
@@ -228,8 +228,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::run
-     * @covers \Tivie\Command\Command::exec
+     * @covers \Orsokuma\Command\Command::run
+     * @covers \Orsokuma\Command\Command::exec
      */
     public function testRunOnWindows()
     {
@@ -250,8 +250,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::run
-     * @covers \Tivie\Command\Command::procOpen
+     * @covers \Orsokuma\Command\Command::run
+     * @covers \Orsokuma\Command\Command::procOpen
      */
     public function testRunOnUnix()
     {
@@ -273,13 +273,13 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::chain
+     * @covers \Orsokuma\Command\Command::chain
      */
     public function testChain()
     {
         $cmd = new Command();
 
-        $chainMock = $this->getMockBuilder('\Tivie\Command\Chain')
+        $chainMock = $this->getMockBuilder('\Orsokuma\Command\Chain')
             ->setMethods(array('add'))
             ->getMock();
 
@@ -288,8 +288,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * @covers \Tivie\Command\Command::setFlags
-     * @covers \Tivie\Command\Command::getFlags
+     * @covers \Orsokuma\Command\Command::setFlags
+     * @covers \Orsokuma\Command\Command::getFlags
      */
     public function testSetGetFlags()
     {
@@ -319,8 +319,8 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Tivie\Command\Exception\InvalidArgumentException
-     * @covers  \Tivie\Command\Command::setFlags
+     * @expectedException \Orsokuma\Command\Exception\InvalidArgumentException
+     * @covers  \Orsokuma\Command\Command::setFlags
      */
     public function testSetFlagsIAException()
     {
@@ -329,10 +329,10 @@ class CommandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Tivie\Command\Command::chdir
-     * @covers \Tivie\Command\Command::setCurrentWorkingDirectory
-     * @covers \Tivie\Command\Command::exec
-     * @covers \Tivie\Command\Command::proc_open
+     * @covers \Orsokuma\Command\Command::chdir
+     * @covers \Orsokuma\Command\Command::setCurrentWorkingDirectory
+     * @covers \Orsokuma\Command\Command::exec
+     * @covers \Orsokuma\Command\Command::proc_open
      */
     public function testChdir()
     {

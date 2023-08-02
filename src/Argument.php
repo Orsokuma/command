@@ -6,9 +6,9 @@
  * Time: 02:53
  */
 
-namespace Tivie\Command;
+namespace Orsokuma\Command;
 
-use Tivie\Command\Exception\InvalidArgumentException;
+use Orsokuma\Command\Exception\InvalidArgumentException;
 
 class Argument
 {

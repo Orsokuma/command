@@ -1,6 +1,6 @@
 {
   "name": "orsokuma/command",
-  "description": "An utility library that harmonizes OS differences and executes external programs in a safer way, forked from tivie/command",
+  "description": "An utility library that harmonizes OS differences and executes external programs in a safer way, forked from orsokuma/command",
   "keywords": [
     "exec",
     "proc_open",
