@@ -1,8 +1,8 @@
 Command [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c78abfc2-5482-4ece-8ae8-4a668b527c33/small.png)](https://insight.sensiolabs.com/projects/c78abfc2-5482-4ece-8ae8-4a668b527c33)
 =======  
-[![Build Status](https://travis-ci.org/tivie/command.svg?branch=master)](https://travis-ci.org/tivie/command)
-[![Latest Stable Version](https://poser.pugx.org/tivie/command/v/stable.svg)](https://packagist.org/packages/tivie/command)
-[![License](https://poser.pugx.org/tivie/command/license.svg)](https://packagist.org/packages/tivie/command)
+[![Build Status](https://travis-ci.org/orsokuma/command.svg?branch=master)](https://travis-ci.org/orsokuma/command)
+[![Latest Stable Version](https://poser.pugx.org/orsokuma/command/v/stable.svg)](https://packagist.org/packages/orsokuma/command)
+[![License](https://poser.pugx.org/orsokuma/command/license.svg)](https://packagist.org/packages/orsokuma/command)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c78abfc2-5482-4ece-8ae8-4a668b527c33/mini.png)](https://insight.sensiolabs.com/projects/c78abfc2-5482-4ece-8ae8-4a668b527c33)
 
 
@@ -26,20 +26,20 @@ You can install it by cloning the git repository or using composer.
 
 ### Git clone
 
-    git clone https://github.com/tivie/command.git
+    git clone https://github.com/orsokuma/command.git
 
 ### Composer
 Add these lines to your composer.json:
 ```json
     {
         "require": {
-            "tivie/command": "*"
+            "orsokuma/command": "*"
         }
     }
 ```
 or run the following command:
 
-    php composer.phar require tivie/command
+    php composer.phar require orsokuma/command
     
 
 ## Quick Usage guide
@@ -94,7 +94,7 @@ yourself a lot, with a lot of conditional checks.
 **With command library, you don't need to: it will do this work for you.**
 
 ```php
-$cmd = new \Tivie\Command\Command(\Tivie\Command\ESCAPE);
+$cmd = new \Orsokuma\Command\Command(\Orsokuma\Command\ESCAPE);
 $cmd->setCommand('ping')
     ->addArgument(
         new Argument('-n', 3, \Tivie\OS\WINDOWS_FAMILY)
@@ -130,11 +130,11 @@ echo $result->getExitCode();  // The command's exit code
 Command library supports command chaining
 
 ```php
-$cmd1 = new \Tivie\Command\Command();
+$cmd1 = new \Orsokuma\Command\Command();
 $cmd1->setCommand('php')
     ->addArgument(new Argument('-v'));
 
-$cmd2 = new \Tivie\Command\Command();
+$cmd2 = new \Orsokuma\Command\Command();
 $cmd2->setCommand('echo')
     ->addArgument(new Argument('foo'));
     
@@ -151,7 +151,7 @@ You can also specify chaining conditions, similar to Linux's Chaining Operators.
 #### RUN_REGARDLESS (';')
 
 ```php
-$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_REGARDLESS)->run(); 
+$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_REGARDLESS)->run(); 
 ```
 
 `$cmd2` will be run regardless of the exitcode of `$cmd1`. Mimics the ';' chaining operator and is the default action.
@@ -159,7 +159,7 @@ $cmd1->chain()->add($cmd2, \Tivie\Command\RUN_REGARDLESS)->run();
 #### RUN_IF_PREVIOUS_SUCCEEDS ('&&')
 
 ```php
-$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_IF_PREVIOUS_SUCCEEDS)->run(); 
+$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_IF_PREVIOUS_SUCCEEDS)->run(); 
 ```
 
 `$cmd2` will only be run if `$cmd1` is successful, that is, if it exits with exitcode 0. Mimics the '&&' chaining operator.
@@ -167,7 +167,7 @@ $cmd1->chain()->add($cmd2, \Tivie\Command\RUN_IF_PREVIOUS_SUCCEEDS)->run();
 #### RUN_IF_PREVIOUS_FAILS ('||')
 
 ```php
-$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_IF_PREVIOUS_FAILS)->run(); 
+$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_IF_PREVIOUS_FAILS)->run(); 
 ```
 
 `$cmd2` will only be run if `$cmd1` is not successful, that is, if it exits with exitcode different than 0. 
@@ -179,9 +179,9 @@ That being said, you can create complex command chains. For instance:
 
 ```php
 $cmd1->chain()
-     ->add($cmd2, \Tivie\Command\RUN_IF_PREVIOUS_SUCCEEDS)
-     ->add($cmd3, \Tivie\Command\RUN_IF_PREVIOUS_FAILS)
-     ->add($cmd4, \Tivie\Command\RUN_REGARDLESS)
+     ->add($cmd2, \Orsokuma\Command\RUN_IF_PREVIOUS_SUCCEEDS)
+     ->add($cmd3, \Orsokuma\Command\RUN_IF_PREVIOUS_FAILS)
+     ->add($cmd4, \Orsokuma\Command\RUN_REGARDLESS)
      ->run(); 
 ```
 
@@ -204,7 +204,7 @@ Piping the standard output of one command to the next's standard input is easy. 
 of [`Chain::add()`][2] to `true`.
 
 ```php
-$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_REGARDLESS, true)
+$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_REGARDLESS, true)
 ```
 
 
@@ -215,8 +215,8 @@ keyword (placeholder) ***'!PIPE!'*** in the command's argument key and values an
 You will then need to pass true as the third argument in [`Chain::add()`][2] function, same as the above case.
 
 ```php
-$cmd2->addArgument(new Argument('foo'), \Tivie\Command\PIPE_PH); // PIPE_PH = '!PIPE!'
-$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_REGARDLESS, true);
+$cmd2->addArgument(new Argument('foo'), \Orsokuma\Command\PIPE_PH); // PIPE_PH = '!PIPE!'
+$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_REGARDLESS, true);
 ```
 
 ## Add support for other OS
@@ -238,7 +238,7 @@ class MyOSDetector extends \Tivie\OS\Detector
         switch($os->name) {
             case "OS/2":
             case "OS/2 WARP":
-                $os->family = \Tivie\Command\OS\OTHER_FAMILY;
+                $os->family = \Orsokuma\Command\OS\OTHER_FAMILY;
                 $os->def = OS_2_WARP;
                 break;
         }
@@ -256,9 +256,9 @@ to. In the example we chose 16th term (65536) plus the OS family (in this case, 
 ## Contribute
 Feel free to contribute by forking or making suggestions.
 
-Issue tracker: https://github.com/tivie/command/issues
+Issue tracker: https://github.com/orsokuma/command/issues
 
-Source code: https://github.com/tivie/command
+Source code: https://github.com/orsokuma/command
 
 ### Contributors
 [Tivie](http://tivie.github.com/Tivie)
@@ -266,11 +266,11 @@ Source code: https://github.com/tivie/command
 
 ## License
 Command Library is released under Apache 2.0 license. For more information, please consult 
-the [LICENSE](https://github.com/tivie/commandr/blob/master/LICENSE) file in this repository or 
+the [LICENSE](https://github.com/orsokuma/commandr/blob/master/LICENSE) file in this repository or 
 http://www.apache.org/licenses/LICENSE-2.0.txt.
 
-[1]: https://github.com/tivie/command/blob/master/src/Result.php
-[2]: https://github.com/tivie/command/blob/master/src/Chain.php
+[1]: https://github.com/orsokuma/command/blob/master/src/Result.php
+[2]: https://github.com/orsokuma/command/blob/master/src/Chain.php
 [3]: https://github.com/tivie/php-os-detector/blob/master/src/Detector.php
 [4]: https://github.com/tivie/php-os-detector/blob/master/src/DetectorInterface.php
 [5]: https://github.com/tivie/php-os-detector

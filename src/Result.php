@@ -18,7 +18,7 @@
  * limitations under the License.
  **/
 
-namespace Tivie\Command;
+namespace Orsokuma\Command;
 
 class Result
 {

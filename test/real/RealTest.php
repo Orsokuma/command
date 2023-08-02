@@ -6,7 +6,7 @@
  * Time: 15:56
  */
 
-namespace Tivie\Command;
+namespace Orsokuma\Command;
 
 use Tivie\OS\Detector;
 

@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-  "name": "tivie/command",
-  "description": "An utility library that harmonizes OS differences and executes external programs in a safer way",
-=======
   "name": "orsokuma/command",
-  "description": "An utility library that harmonizes OS differences and executes external programs in a safer way, forked from tivie/command",
->>>>>>> parent of 416a94d (Update calls to Command)
+  "description": "An utility library that harmonizes OS differences and executes external programs in a safer way, forked from orsokuma/command",
   "keywords": [
     "exec",
     "proc_open",
@@ -22,7 +17,7 @@
     }
   ],
   "require": {
-    "php": ">=5.3.0",
+    "php": ">=8.2",
     "tivie/php-os-detector": "^1.0.0"
   },
   "require-dev": {
