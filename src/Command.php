@@ -427,7 +427,7 @@ class Command implements \IteratorAggregate
      * @link http://php.net/manual/en/iteratoraggregate.getiterator.php
      * @return Traversable An instance of an object implementing <b>Iterator</b> or <b>Traversable</b>
      */
-    public function getIterator()
+    #[\ReturnTypeWillChange] public function getIterator()
     {
         $array = $this->arguments;
         array_unshift($array, $this->getCommand());
