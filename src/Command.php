@@ -18,7 +18,7 @@
  * limitations under the License.
  **/
 
-namespace Orsokuma\Command;
+namespace Tivie\Command;
 
 const FORCE_USE_PROC_OPEN         = 1;
 const ESCAPE                      = 2;
@@ -32,9 +32,9 @@ const RUN_PIPED                   = 3;
 
 const PIPE_PH = '!PIPE!';
 
-use Orsokuma\Command\Exception\DomainException;
-use Orsokuma\Command\Exception\Exception;
-use Orsokuma\Command\Exception\InvalidArgumentException;
+use Tivie\Command\Exception\DomainException;
+use Tivie\Command\Exception\Exception;
+use Tivie\Command\Exception\InvalidArgumentException;
 use Tivie\OS\Detector;
 use Tivie\OS\DetectorInterface;
 use Traversable;
@@ -43,7 +43,7 @@ use Traversable;
  * Class Command
  * An utility class that provides a safer way to run system commands
  *
- * @package Orsokuma\Command
+ * @package Tivie\Command
  */
 class Command implements \IteratorAggregate
 {
