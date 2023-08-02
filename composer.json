@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "tivie/command",
   "description": "An utility library that harmonizes OS differences and executes external programs in a safer way",
+=======
+  "name": "orsokuma/command",
+  "description": "An utility library that harmonizes OS differences and executes external programs in a safer way, forked from tivie/command",
+>>>>>>> parent of 416a94d (Update calls to Command)
   "keywords": [
     "exec",
     "proc_open",
