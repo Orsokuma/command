@@ -94,7 +94,7 @@ yourself a lot, with a lot of conditional checks.
 **With command library, you don't need to: it will do this work for you.**
 
 ```php
-$cmd = new \Orsokuma\Command\Command(\Orsokuma\Command\ESCAPE);
+$cmd = new \Tivie\Command\Command(\Tivie\Command\ESCAPE);
 $cmd->setCommand('ping')
     ->addArgument(
         new Argument('-n', 3, \Tivie\OS\WINDOWS_FAMILY)
@@ -130,11 +130,11 @@ echo $result->getExitCode();  // The command's exit code
 Command library supports command chaining
 
 ```php
-$cmd1 = new \Orsokuma\Command\Command();
+$cmd1 = new \Tivie\Command\Command();
 $cmd1->setCommand('php')
     ->addArgument(new Argument('-v'));
 
-$cmd2 = new \Orsokuma\Command\Command();
+$cmd2 = new \Tivie\Command\Command();
 $cmd2->setCommand('echo')
     ->addArgument(new Argument('foo'));
     
@@ -151,7 +151,7 @@ You can also specify chaining conditions, similar to Linux's Chaining Operators.
 #### RUN_REGARDLESS (';')
 
 ```php
-$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_REGARDLESS)->run(); 
+$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_REGARDLESS)->run(); 
 ```
 
 `$cmd2` will be run regardless of the exitcode of `$cmd1`. Mimics the ';' chaining operator and is the default action.
@@ -159,7 +159,7 @@ $cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_REGARDLESS)->run();
 #### RUN_IF_PREVIOUS_SUCCEEDS ('&&')
 
 ```php
-$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_IF_PREVIOUS_SUCCEEDS)->run(); 
+$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_IF_PREVIOUS_SUCCEEDS)->run(); 
 ```
 
 `$cmd2` will only be run if `$cmd1` is successful, that is, if it exits with exitcode 0. Mimics the '&&' chaining operator.
@@ -167,7 +167,7 @@ $cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_IF_PREVIOUS_SUCCEEDS)->run();
 #### RUN_IF_PREVIOUS_FAILS ('||')
 
 ```php
-$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_IF_PREVIOUS_FAILS)->run(); 
+$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_IF_PREVIOUS_FAILS)->run(); 
 ```
 
 `$cmd2` will only be run if `$cmd1` is not successful, that is, if it exits with exitcode different than 0. 
@@ -179,9 +179,9 @@ That being said, you can create complex command chains. For instance:
 
 ```php
 $cmd1->chain()
-     ->add($cmd2, \Orsokuma\Command\RUN_IF_PREVIOUS_SUCCEEDS)
-     ->add($cmd3, \Orsokuma\Command\RUN_IF_PREVIOUS_FAILS)
-     ->add($cmd4, \Orsokuma\Command\RUN_REGARDLESS)
+     ->add($cmd2, \Tivie\Command\RUN_IF_PREVIOUS_SUCCEEDS)
+     ->add($cmd3, \Tivie\Command\RUN_IF_PREVIOUS_FAILS)
+     ->add($cmd4, \Tivie\Command\RUN_REGARDLESS)
      ->run(); 
 ```
 
@@ -204,7 +204,7 @@ Piping the standard output of one command to the next's standard input is easy. 
 of [`Chain::add()`][2] to `true`.
 
 ```php
-$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_REGARDLESS, true)
+$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_REGARDLESS, true)
 ```
 
 
@@ -215,8 +215,8 @@ keyword (placeholder) ***'!PIPE!'*** in the command's argument key and values an
 You will then need to pass true as the third argument in [`Chain::add()`][2] function, same as the above case.
 
 ```php
-$cmd2->addArgument(new Argument('foo'), \Orsokuma\Command\PIPE_PH); // PIPE_PH = '!PIPE!'
-$cmd1->chain()->add($cmd2, \Orsokuma\Command\RUN_REGARDLESS, true);
+$cmd2->addArgument(new Argument('foo'), \Tivie\Command\PIPE_PH); // PIPE_PH = '!PIPE!'
+$cmd1->chain()->add($cmd2, \Tivie\Command\RUN_REGARDLESS, true);
 ```
 
 ## Add support for other OS
@@ -238,7 +238,7 @@ class MyOSDetector extends \Tivie\OS\Detector
         switch($os->name) {
             case "OS/2":
             case "OS/2 WARP":
-                $os->family = \Orsokuma\Command\OS\OTHER_FAMILY;
+                $os->family = \Tivie\Command\OS\OTHER_FAMILY;
                 $os->def = OS_2_WARP;
                 break;
         }

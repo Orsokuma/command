@@ -18,13 +18,13 @@
  * limitations under the License.
  **/
 
-namespace Orsokuma\Command\Exception;
+namespace Tivie\Command\Exception;
 
 /**
  * Class InvalidArgumentException
  * Exception thrown if an argument is not of the expected type.
  *
- * @package Orsokuma\Command\Exception
+ * @package Tivie\Command\Exception
  * @copyright 2014 Estevão Soares dos Santos
  */
 class InvalidArgumentException extends Exception

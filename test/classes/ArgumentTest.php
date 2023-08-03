@@ -18,7 +18,7 @@
  * limitations under the License.
  **/
 
-namespace Orsokuma\Command;
+namespace Tivie\Command;
 
 use \Tivie\OS\Detector;
 
@@ -30,7 +30,7 @@ class ArgumentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Orsokuma\Command\Argument::__construct
+     * @covers \Tivie\Command\Argument::__construct
      */
     public function testConstructor()
     {
@@ -62,20 +62,20 @@ class ArgumentTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Orsokuma\Command\Argument::getKey
-     * @covers \Orsokuma\Command\Argument::setKey
-     * @covers \Orsokuma\Command\Argument::getPrefix()
-     * @covers \Orsokuma\Command\Argument::setPrefix()
-     * @covers \Orsokuma\Command\Argument::getIdentifier()
-     * @covers \Orsokuma\Command\Argument::setIdentifier()
-     * @covers \Orsokuma\Command\Argument::getValues()
-     * @covers \Orsokuma\Command\Argument::setValues()
-     * @covers \Orsokuma\Command\Argument::replaceValue()
-     * @covers \Orsokuma\Command\Argument::addValue()
-     * @covers \Orsokuma\Command\Argument::getOs()
-     * @covers \Orsokuma\Command\Argument::setOs()
-     * @covers \Orsokuma\Command\Argument::willEscape()
-     * @covers \Orsokuma\Command\Argument::escape
+     * @covers \Tivie\Command\Argument::getKey
+     * @covers \Tivie\Command\Argument::setKey
+     * @covers \Tivie\Command\Argument::getPrefix()
+     * @covers \Tivie\Command\Argument::setPrefix()
+     * @covers \Tivie\Command\Argument::getIdentifier()
+     * @covers \Tivie\Command\Argument::setIdentifier()
+     * @covers \Tivie\Command\Argument::getValues()
+     * @covers \Tivie\Command\Argument::setValues()
+     * @covers \Tivie\Command\Argument::replaceValue()
+     * @covers \Tivie\Command\Argument::addValue()
+     * @covers \Tivie\Command\Argument::getOs()
+     * @covers \Tivie\Command\Argument::setOs()
+     * @covers \Tivie\Command\Argument::willEscape()
+     * @covers \Tivie\Command\Argument::escape
      */
     public function testSettersAndGetters()
     {

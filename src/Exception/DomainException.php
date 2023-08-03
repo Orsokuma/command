@@ -18,13 +18,13 @@
  * limitations under the License.
  **/
 
-namespace Orsokuma\Command\Exception;
+namespace Tivie\Command\Exception;
 
 /**
  * Class DomainException
  * Exception thrown if a value does not adhere to a defined valid data domain.
  *
- * @package Orsokuma\Command\Exception
+ * @package Tivie\Command\Exception
  * @copyright 2014 Estevão Soares dos Santos
  */
 class DomainException extends Exception

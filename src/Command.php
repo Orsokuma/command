@@ -354,8 +354,8 @@ class Command implements \IteratorAggregate
      * @param  Result $result [optional] You can pass a result object to store the result of the run command.
      *                        If none is provided, one will be initialized automatically for you.
      *
-     * @return \Orsokuma\Command\Result An object containing the result of the command
-     * @throws \Orsokuma\Command\Exception\Exception
+     * @return \Tivie\Command\Result An object containing the result of the command
+     * @throws \Tivie\Command\Exception\Exception
      */
     public function run(Result $result = null)
     {

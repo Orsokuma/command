@@ -6,13 +6,13 @@
  * Time: 17:00
  */
 
-namespace Orsokuma\Command;
+namespace Tivie\Command;
 
 class ChainTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers \Orsokuma\Command\Chain::add
-     * @covers \Orsokuma\Command\Chain::run
+     * @covers \Tivie\Command\Chain::add
+     * @covers \Tivie\Command\Chain::run
      */
     public function testRun()
     {
@@ -47,7 +47,7 @@ class ChainTest extends \PHPUnit_Framework_TestCase
 
     private function getResultMock($stdOut, $exitCode = 0)
     {
-        $mock = $this->getMockBuilder('\Orsokuma\Command\Command')
+        $mock = $this->getMockBuilder('\Tivie\Command\Command')
             ->setMethods(array('getExitCode', 'getStdOut'))
             ->getMock();
 
@@ -59,14 +59,14 @@ class ChainTest extends \PHPUnit_Framework_TestCase
 
     private function getCmdMock()
     {
-        return $this->getMockBuilder('\Orsokuma\Command\Command')
+        return $this->getMockBuilder('\Tivie\Command\Command')
             ->setMethods(array('run', 'setStdIn'))
             ->getMock();
     }
 
     /**
-     * @covers \Orsokuma\Command\Chain::add
-     * @covers \Orsokuma\Command\Chain::run
+     * @covers \Tivie\Command\Chain::add
+     * @covers \Tivie\Command\Chain::run
      */
     public function testRunPipedArgument()
     {
@@ -91,7 +91,7 @@ class ChainTest extends \PHPUnit_Framework_TestCase
 
     private function getArgumentMock()
     {
-        return $this->getMockBuilder('\Orsokuma\Command\Argument')
+        return $this->getMockBuilder('\Tivie\Command\Argument')
             ->setMethods(array('replaceValue'))
             ->setConstructorArgs(func_get_args())
             ->getMock();

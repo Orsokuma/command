@@ -18,13 +18,13 @@
  * limitations under the License.
  **/
 
-namespace Orsokuma\Command;
+namespace Tivie\Command;
 
 /**
  * Class Chain
  * A Helper class that controls command chaining
  *
- * @package Orsokuma\Command
+ * @package Tivie\Command
  */
 class Chain
 {
@@ -60,9 +60,9 @@ class Chain
     /**
      * Runs the command chain
      *
-     * @return \Orsokuma\Command\Result[]
-     * @throws \Orsokuma\Command\Exception\Exception
-     * @throws \Orsokuma\Command\Exception\InvalidArgumentException
+     * @return \Tivie\Command\Result[]
+     * @throws \Tivie\Command\Exception\Exception
+     * @throws \Tivie\Command\Exception\InvalidArgumentException
      */
     public function run()
     {
