@@ -1,4 +1,4 @@
-vendor/
+vendor
 phpunit.phar
 composer.phar
 composer.lock
